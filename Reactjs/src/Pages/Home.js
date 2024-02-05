@@ -39,7 +39,7 @@ function Home() {
             <News/>
             <PhotoGallery/>
             <Footer/> */}
-            <div className="container-fluid">
+            {/* <div className="container-fluid">
                 <div className="row bg-secondary py-2 px-xl-5">
                     <div className="col-lg-6 d-none d-lg-block">
                         <div className="d-inline-flex align-items-center">
@@ -100,7 +100,7 @@ function Home() {
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> */}
             {/* <!-- Topbar End -->
 
 
