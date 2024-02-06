@@ -1,9 +1,6 @@
 import { React, useState } from 'react'
-import { Link } from 'react-router-dom'
 import './Header.css'
 
-import MenuIcon from '@material-ui/icons/Menu';
-import ClearIcon from '@material-ui/icons/Clear';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faTwitter, faLinkedinIn, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import { faSearch, faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons';

@@ -3434,7 +3434,7 @@ input[type="button"].btn-block {
   margin-left: 0;
 }
 
-.dropdown-menu {
+dropdown-menu {
   position: absolute;
   top: 100%;
   left: 0;
@@ -6691,18 +6691,18 @@ a.close.disabled {
   vertical-align: text-top !important;
 }
 
-.bg-primary {
+body .bg-primary {
   background-color: #D19C97 !important;
 }
 
-a.bg-primary:hover,
-a.bg-primary:focus,
-button.bg-primary:hover,
-button.bg-primary:focus {
+body a.bg-primary:hover,
+body a.bg-primary:focus,
+body button.bg-primary:hover,
+body button.bg-primary:focus {
   background-color: #c17a74 !important;
 }
 
-.bg-secondary {
+body .bg-secondary {
   background-color: #EDF1FF !important;
 }
 
