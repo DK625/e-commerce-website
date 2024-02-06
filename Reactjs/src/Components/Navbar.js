@@ -9,6 +9,7 @@ import '../assets/css/style.css'
 const Navbar = () => {
     const [isNavbarVisible, setNavbarVisible] = useState(true);
     const [isDressesVisible, setDressesVisible] = useState(false);
+    const images = [carousel_1, carousel_2];
 
     const toggleNavbar = () => {
         setNavbarVisible(!isNavbarVisible);
@@ -36,41 +37,7 @@ const Navbar = () => {
                         className="navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0"
                         id="navbar-vertical"
                     >
-                        <div className="navbar-nav w-100 overflow-hidden" style={{ height: '410px' }}>
-                            {/* <div className="nav-item dropdown">
-                                <a href="#" className="nav-link" data-toggle="dropdown">
-                                    Dresses <FontAwesomeIcon icon={faAngleDown} className="float-right mt-1" />
-                                </a>
-                                <div className="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
-                                    <a href="" className="dropdown-item">
-                                        Men's Dresses
-                                    </a>
-                                    <a href="" className="dropdown-item">
-                                        Women's Dresses
-                                    </a>
-                                    <a href="" className="dropdown-item">
-                                        Baby's Dresses
-                                    </a>
-                                </div>
-                            </div> */}
-                            {/* {isDressesVisible && (
-                                <div className="nav-item dropdown">
-                                    <a href="#" className="nav-link" data-toggle="dropdown">
-                                        Dresses <FontAwesomeIcon icon={faAngleDown} className="float-right mt-1" />
-                                    </a>
-                                    <div className="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
-                                        <a href="" className="dropdown-item">
-                                            Men's Dresses
-                                        </a>
-                                        <a href="" className="dropdown-item">
-                                            Women's Dresses
-                                        </a>
-                                        <a href="" className="dropdown-item">
-                                            Baby's Dresses
-                                        </a>
-                                    </div>
-                                </div>
-                            )} */}
+                        <div className="navbar-nav w-100 overflow-hidden" >
                             <div className="nav-item dropdown">
                                 <a href="#" className="nav-link"
                                     onClick={() => {
@@ -79,8 +46,6 @@ const Navbar = () => {
                                     Dresses <FontAwesomeIcon icon={faAngleDown} className="float-right mt-1" />
                                 </a>
                                 {isDressesVisible && (
-                                    //     <div>fdfdsf</div>)
-                                    // }
                                     <div className="bg-secondary position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
                                         <a href="" className="dropdown-item">
                                             Men's Dresses
@@ -123,9 +88,11 @@ const Navbar = () => {
                         </div>
                     </nav>
                 )}
-
             </div>
-            <div className="col-lg-9">
+
+
+
+            <div className="col-lg-9 d-flex flex-column">
                 <nav className="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
                     <a href="" className="text-decoration-none d-block d-lg-none">
                         <h1 className="m-0 display-5 font-weight-semi-bold"><span
@@ -156,9 +123,9 @@ const Navbar = () => {
                         </div>
                     </div>
                 </nav>
-                <Slide>
+                {/* <Slide>
                     <div className="each-slide-effect">
-                        <div className="carousel-item active" style={{ height: '410px' }}>
+                        <div className="carousel-item active" style={{ height: '380px' }}>
                             <img className="img-fluid" src={carousel_1} alt="Image" />
                             <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div className="p-3" style={{ maxWidth: '700px' }}>
@@ -170,7 +137,7 @@ const Navbar = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="carousel-item active" style={{ height: '410px' }}>
+                    <div className="carousel-item active" style={{ height: '380px' }}>
                         <img className="img-fluid" src={carousel_2} alt="Image" />
                         <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
                             <div className="p-3" style={{ maxWidth: '700px' }}>
@@ -181,8 +148,36 @@ const Navbar = () => {
                             </div>
                         </div>
                     </div>
+                </Slide> */}
+                <Slide images={images} duration={50000} transitionDuration={500} height="100%">
+                    {images.map((image, index) => (
+                        <div key={index} className="each-slide-effect">
+                            <div className="carousel-item" style={{
+                                backgroundImage: `url(${image})`,
+                                height: '383px',
+                                // height: '100%',
+                                // backgroundSize: 'cover',
+                                // backgroundPosition: 'center'
+                            }}>
+                                {/* <di v> */}
+                                <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                                    {/* <div> */}
+                                    <div className="p-5">
+                                        <h4 className="text-light text-uppercase font-weight-medium mb-3">10% Off Your First Order</h4>
+                                        <h3 className="display-4 text-white font-weight-semi-bold mb-4">Fashionable Dress</h3>
+                                        <a href="" className="btn btn-light py-2 px-3">
+                                            Shop Now
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
                 </Slide>
             </div>
+
+
+
         </div>
     );
 };
