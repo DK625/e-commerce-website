@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 import product_1 from '../assets/img/product-1.jpg';
 import product_2 from '../assets/img/product-2.jpg';
 import product_3 from '../assets/img/product-3.jpg';
@@ -20,19 +21,21 @@ const productsData = [
     { id: 7, img: product_7, name: 'Colorful Stylish Shirt', price: 123.00 },
     { id: 8, img: product_8, name: 'Colorful Stylish Shirt', price: 123.00 },
 ];
-
-function Products() {
+const Products = ({ colSize, productType }) => {
+    const size = colSize || "col-lg-3";
     return (
         <div className="container-fluid pt-5">
-            <div className="text-center mb-4">
-                <h2 className="section-title px-5"><span className="px-2">Trendy Products</span></h2>
-            </div>
+            {productType && (
+                <div className="text-center mb-4">
+                    <h2 className="section-title px-5"><span className="px-2">{productType || 'Trendy Products'}</span></h2>
+                </div>
+            )}
             <div className="row px-xl-5 pb-3">
                 {productsData.map((product) => (
-                    <div key={product.id} className="col-lg-3 col-md-6 col-sm-12 pb-1">
+                    <div key={product.id} className={`${size} col-md-6 col-sm-12 pb-1`}>
                         <div className="card product-item border-0 mb-4">
                             <div className="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                                <img className="img-fluid w-100" src={product.img} alt={product.name} />
+                                <Link to='/product_detail'><img className="img-fluid w-100" src={product.img} alt={product.name} /></Link>
                             </div>
                             <div className="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                 <h6 className="text-truncate mb-3">{product.name}</h6>
@@ -42,7 +45,10 @@ function Products() {
                                 </div>
                             </div>
                             <div className="card-footer d-flex justify-content-between bg-light border">
-                                <a href="" className="btn btn-sm text-dark p-0"><FontAwesomeIcon icon={faEye} className="text-primary mr-1" />View Detail</a>
+                                <Link to='/product_detail' className="btn btn-sm text-dark p-0">
+                                    <FontAwesomeIcon icon={faEye} className="text-primary mr-1" />
+                                    View Detail
+                                </Link>
                                 <a href="" className="btn btn-sm text-dark p-0"><FontAwesomeIcon icon={faShoppingCart} className="text-primary mr-1" />Add To Cart</a>
                             </div>
                         </div>

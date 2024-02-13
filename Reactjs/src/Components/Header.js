@@ -1,9 +1,8 @@
 import { React, useState } from 'react'
-import './Header.css'
-
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faTwitter, faLinkedinIn, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { faSearch, faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faHeart, faShoppingCart, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
 function Header() {
 
@@ -69,14 +68,18 @@ function Header() {
                     </form>
                 </div>
                 <div className="col-lg-3 col-6 text-right">
-                    <a href="" className="btn border">
+                    <Link to="/track" className="btn border">
+                        <FontAwesomeIcon icon={faMapMarkerAlt} className="text-header-color" />
+                        <span className="badge">Track Order</span>
+                    </Link>
+                    <Link to="/white_list" className="btn border">
                         <FontAwesomeIcon icon={faHeart} className="text-header-color" />
                         <span className="badge">0</span>
-                    </a>
-                    <a href="" className="btn border">
+                    </Link>
+                    <Link to="/cart" className="btn border">
                         <FontAwesomeIcon icon={faShoppingCart} className="text-header-color" />
                         <span className="badge">0</span>
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>

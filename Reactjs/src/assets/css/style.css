@@ -10763,3 +10763,50 @@ a.text-dark:focus {
     transform: translateY(-15px);
   }
 }
+
+.bg-header {
+  background-color: #EDF1FF;
+}
+
+.text-header-color {
+  color: #D19C97
+}
+
+body .carousel-control-prev,
+body .carousel-control-next {
+  position: absolute;
+  top: 45%;
+  width: 45px;
+  height: 45px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  opacity: 0.5;
+  transition: opacity 0.15s ease;
+}
+
+body .carousel-control-prev {
+  left: 100px !important;
+}
+
+.carousel-control-next {
+  right: 100px !important;
+}
+
+.each-slide-effect>div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  height: 350px;
+}
+
+.each-slide-effect span {
+  padding: 20px;
+  font-size: 20px;
+  background: #efefef;
+  text-align: center;
+}

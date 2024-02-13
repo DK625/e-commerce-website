@@ -1,16 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Slide } from 'react-slideshow-image';
+import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import carousel_1 from '../assets/img/carousel-1.jpg'
 import carousel_2 from '../assets/img/carousel-2.jpg'
-import './Navbar.css'
 
-const Navbar = () => {
+const Navbar = ({ inputImages }) => {
     const [isNavbarVisible, setNavbarVisible] = useState(true);
     const [isDressesVisible, setDressesVisible] = useState(false);
 
-    const images = [
+    const [currentPath, setCurrentPath] = useState('/');
+    const location = useLocation();
+
+    useEffect(() => {
+        setCurrentPath(location.pathname);
+    }, [location.pathname]);
+
+    const NavLink = ({ to, children }) => {
+        const { pathname } = useLocation();
+        const isActive = pathname === to;
+
+        const linkStyle = {
+            color: isActive ? '#D19C97' : '',
+        };
+
+        const linkClass = `${categoryClass} ${isActive ? 'active' : ''}`;
+
+        return (
+            <Link to={to} className={linkClass} style={linkStyle}>
+                {children}
+            </Link>
+        );
+    };
+
+    const defaultImages = [
         { url: carousel_1, slideTitle: '10% Off Your First Order', slideSubtitle: 'Fashionable Dress' },
         { url: carousel_2, slideTitle: '10% Off Your First Order', slideSubtitle: 'Reasonable Price' }
     ];
@@ -26,6 +50,8 @@ const Navbar = () => {
     const categoryClass = "nav-item nav-link";
 
     const pageClass = "dropdown-item";
+
+    const imagesResult = inputImages || defaultImages;
 
     return (
         <div className="row border-top px-xl-5">
@@ -81,18 +107,11 @@ const Navbar = () => {
                     </button>
                     <div className="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div className="navbar-nav mr-auto py-0">
-                            <a href="index.html" className={categoryClass}>Home</a>
-                            <a href="shop.html" className={categoryClass}>Shop</a>
-                            <a href="detail.html" className={categoryClass}>Products Detail</a>
-                            <div className="nav-item dropdown">
-                                <a href="#" className={categoryClass} data-toggle="dropdown">Pages</a>
-                                <div className="dropdown-menu rounded-0 m-0">
-                                    <a href="cart.html" className={pageClass}>Shopping Cart</a>
-                                    <a href="checkout.html" className={pageClass}>Checkout</a>
-                                    <a href="order_tracking.html" className={pageClass}>Order Tracking</a>
-                                </div>
-                            </div>
-                            <a href="contact.html" className={categoryClass}>Contact</a>
+                            <NavLink to="/">Home</NavLink>
+                            <NavLink to="/shop">Shop</NavLink>
+                            <NavLink to="/about_us">About us</NavLink>
+                            <NavLink to="/blog">Blog</NavLink>
+                            <NavLink to="/contact" className={categoryClass}>Contact us</NavLink>
                         </div>
                         <div className="navbar-nav ml-auto py-0">
                             <a href="login-form-v4/Login_v4/login.html" className={categoryClass}>Login</a>
@@ -101,14 +120,14 @@ const Navbar = () => {
                     </div>
                 </nav>
                 <Slide
-                    images={images}
-                    duration={50000}
+                    // images={imagesResult}
+                    duration={5000}
                     transitionDuration={500}
                     height="100%"
                     prevArrow={<FontAwesomeIcon icon={faAngleLeft} className='carousel-control-prev btn btn-dark' />}
                     nextArrow={<FontAwesomeIcon icon={faAngleRight} className='carousel-control-next btn btn-dark' />}
                 >
-                    {images.map((image, index) => (
+                    {imagesResult.map((image, index) => (
                         <div key={index} className="each-slide-effect">
                             <div className="carousel-item" style={{
                                 backgroundImage: `url(${image.url})`,
