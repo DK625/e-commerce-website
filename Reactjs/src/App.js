@@ -4,6 +4,7 @@ import Contact from './Pages/Contact.js';
 import ProductDetail from './Pages/ProductDetail.js'
 import Cart from './Pages/ShoppingCart.js';
 import CheckOut from './Pages/CheckOut.js';
+import Login from './Pages/Login.js';
 import { BrowserRouter as Router, Switch, Redirect, Route } from "react-router-dom";
 import MemberDashboard from './Pages/Dashboard/MemberDashboard/MemberDashboard.js';
 import Header from './Components/Header';
@@ -17,43 +18,88 @@ function App() {
   const { user } = useContext(AuthContext)
 
   return (
+    // <Router>
+    //   <Header />
+    //   <div className="App">
+    //     <Switch>
+    //       <Route exact path='/'>
+    //         <Home />
+    //       </Route>
+    //       <Route exact path='/shop'>
+    //         <Shop />
+    //       </Route>
+    //       <Route exact path='/product_detail'>
+    //         <ProductDetail />
+    //       </Route>
+    //       <Route exact path='/contact'>
+    //         <Contact />
+    //       </Route>
+    //       <Route exact path='/cart'>
+    //         <Cart />
+    //       </Route>
+    //       <Route exact path='/checkout'>
+    //         <CheckOut />
+    //       </Route>
+    //       <Route exact path='/login'>
+    //         <Login />
+    //       </Route>
+    //       {/* <Route exact path='/signin'>
+    //         {user ? (user.isAdmin ? <Redirect to='/dashboard@admin' /> : <Redirect to='/dashboard@member' />) : <Signin />}
+    //       </Route> */}
+    //       <Route exact path='/dashboard@member'>
+    //         {user ? (user.isAdmin === false ? <MemberDashboard /> : <Redirect to='/' />) : <Redirect to='/' />}
+    //       </Route>
+    //       <Route exact path='/dashboard@admin'>
+    //         {user ? (user.isAdmin === true ? <AdminDashboard /> : <Redirect to='/' />) : <Redirect to='/' />}
+    //       </Route>
+    //       <Route exact path='/books'>
+    //         <Home />
+    //       </Route>
+    //     </Switch>
+    //   </div>
+    //   <Footer />
+    // </Router>
     <Router>
-      <Header />
-      <div className="App">
-        <Switch>
-          <Route exact path='/'>
-            <Home />
-          </Route>
-          <Route exact path='/shop'>
-            <Shop />
-          </Route>
-          <Route exact path='/product_detail'>
-            <ProductDetail />
-          </Route>
-          <Route exact path='/contact'>
-            <Contact />
-          </Route>
-          <Route exact path='/cart'>
-            <Cart />
-          </Route>
-          <Route exact path='/checkout'>
-            <CheckOut />
-          </Route>
-          {/* <Route exact path='/signin'>
-            {user ? (user.isAdmin ? <Redirect to='/dashboard@admin' /> : <Redirect to='/dashboard@member' />) : <Signin />}
-          </Route> */}
-          <Route exact path='/dashboard@member'>
-            {user ? (user.isAdmin === false ? <MemberDashboard /> : <Redirect to='/' />) : <Redirect to='/' />}
-          </Route>
-          <Route exact path='/dashboard@admin'>
-            {user ? (user.isAdmin === true ? <AdminDashboard /> : <Redirect to='/' />) : <Redirect to='/' />}
-          </Route>
-          <Route exact path='/books'>
-            <Home />
-          </Route>
-        </Switch>
-      </div>
-      <Footer />
+      <Switch>
+        <Route exact path='/login'>
+          <Login />
+        </Route>
+        <Route>
+          <Header />
+          <div className="App">
+            <Switch>
+              <Route exact path='/'>
+                <Home />
+              </Route>
+              <Route exact path='/shop'>
+                <Shop />
+              </Route>
+              <Route exact path='/product_detail'>
+                <ProductDetail />
+              </Route>
+              <Route exact path='/contact'>
+                <Contact />
+              </Route>
+              <Route exact path='/cart'>
+                <Cart />
+              </Route>
+              <Route exact path='/checkout'>
+                <CheckOut />
+              </Route>
+              <Route exact path='/dashboard@member'>
+                <MemberDashboard />
+              </Route>
+              <Route exact path='/dashboard@admin'>
+                <AdminDashboard />
+              </Route>
+              <Route exact path='/books'>
+                <Home />
+              </Route>
+            </Switch>
+          </div>
+          <Footer />
+        </Route>
+      </Switch>
     </Router>
   );
 }

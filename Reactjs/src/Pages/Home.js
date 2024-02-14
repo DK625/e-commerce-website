@@ -25,13 +25,18 @@ function Home() {
 
             {/* product detail
             Shopping Cart
-            checkout (v)
-            order tracking
+            checkout
+            login (v)
+
+            purchare -> order tracking (shopee)
+
+            order tracking page web
+            https://bbbootstrap.com/snippets/order-tracking-template-all-details-34023037
+
             white list
             comment
             About us
             Blog
-            sign in
             sign up
             */}
 

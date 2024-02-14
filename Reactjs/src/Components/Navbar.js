@@ -114,7 +114,7 @@ const Navbar = ({ inputImages }) => {
                             <NavLink to="/contact" className={categoryClass}>Contact us</NavLink>
                         </div>
                         <div className="navbar-nav ml-auto py-0">
-                            <a href="login-form-v4/Login_v4/login.html" className={categoryClass}>Login</a>
+                            <Link to='/login' className={categoryClass}>Login</Link>
                             <a href="sign_up_form/colorlib-regform-8/index.html" className={categoryClass}>Register</a>
                         </div>
                     </div>
