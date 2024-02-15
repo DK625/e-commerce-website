@@ -70,7 +70,7 @@ const OtherMethods = (props) => (
 const Facebook = () => <FontAwesomeIcon icon={faFacebook} size="2x" style={{ marginRight: '10px', color: '#0866FF' }} />;
 const Twitter = () => <FontAwesomeIcon icon={faTwitter} size="2x" style={{ marginRight: '10px', color: '#2593E9' }} />;
 const Google = () => (
-    <img src={google_logo} alt="Google" />
+    <img className='google_image' src={google_logo} alt="Google" />
 );
 
 

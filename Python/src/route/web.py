@@ -7,14 +7,14 @@ class User(Resource):
     def get(self):
         return user_controller.handle_get_all_member()
 
-    def post(self):
-        return user_controller.handle_create_new_users()
-
-    def put(self):
-        return user_controller.handle_edit_users()
-
-    def delete(self):
-        return user_controller.handle_delete_users()
+    # def post(self):
+    #     return user_controller.handle_create_new_users()
+    #
+    # def put(self):
+    #     return user_controller.handle_edit_users()
+    #
+    # def delete(self):
+    #     return user_controller.handle_delete_users()
 
 
 class Login(Resource):

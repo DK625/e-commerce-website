@@ -4,14 +4,9 @@ from datetime import datetime, timedelta
 import jwt
 from flask import Flask, current_app, jsonify, request
 
-from ..config.connect_db import db
-from ..config.marsh_mallow import user_schema
 from ..controllers.verify_and_authorization import Middleware
-from ..models.model import Users
 from ..services import user_service
-from flask_restful import Resource, reqparse
 
-users_schema = user_schema(many=True)
 
 
 def sign_up():
