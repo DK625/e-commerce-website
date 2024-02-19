@@ -5,6 +5,8 @@ from sqlalchemy.orm import relationship, declarative_base, sessionmaker
 Base = declarative_base()
 engine = create_engine(POSTGRES_URI, pool_size=64, max_overflow=0, pool_recycle=1800)
 PostgresSession = sessionmaker(bind=engine)
+
+
 class Role(Base):
     __tablename__ = "roles"
 
@@ -12,6 +14,7 @@ class Role(Base):
     name = Column(String(50), nullable=False, unique=True)
     description = Column(String(255))
     users = relationship('User', back_populates='role')
+
 
 class User(Base):
     __tablename__ = "users"
@@ -27,6 +30,7 @@ class User(Base):
 
     role = relationship('Role', back_populates='users')
     orders = relationship('Order', back_populates='user')
+
 
 class Order(Base):
     __tablename__ = "orders"

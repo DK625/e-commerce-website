@@ -1,12 +1,13 @@
 from marshmallow import Schema, fields, ValidationError
-from werkzeug.security import generate_password_hash
-from ..utils import generate_jwt_token
+from ..utils import generate_jwt_tokens
 from .base import BaseModel
 
 
 class LoginPayloadSchema(Schema):
     username = fields.Str(required=True)
-    password = fields.Str(required=True, validate=lambda p: len(p) >= 8, error_messages={"validate": "Password must be at least 8 characters long."})
+    password = fields.Str(required=True, validate=lambda p: len(p) >= 8,
+                          error_messages={"validate": "Password must be at least 8 characters long."})
+
 
 class LoginModel(BaseModel):
     def __init__(self, session):
@@ -27,15 +28,16 @@ class LoginService:
 
     def handle_login(self):
         password = self._payload.get('password')
-        user = self._repo.check_exit_user(self._payload.get('username'), password)
+        user = self._repo.check_exit_user_login(self._payload.get('username'), password)
 
         if user:
+            tokens = generate_jwt_tokens(user)
             return {
                 'username': user.username,
-                'token': generate_jwt_token(user),
+                'access_token': tokens['access_token'],
+                'refresh_token': tokens['refresh_token'],
                 'user_id': user.id,
                 'role': user.role.name
             }
         else:
             return {'error': 'Invalid username or password'}, 401
-

@@ -18,15 +18,17 @@ const AuthService = {
             if (response.ok) {
                 // Set the access token as an HTTP-only cookie using js-cookie
                 const result = await response.json();
-                // const accessToken = await response.json();
-                const resultString = JSON.stringify(result);
-                console.log('result', resultString)
-
-                Cookies.set('result', resultString, {
+                // const resultString = JSON.stringify(result);
+                Cookies.set('access_token', result.access_token, {
                     path: '/',
                     secure: true, // Set to true if using HTTPS
                     sameSite: 'strict', // Adjust based on your needs
                 });
+                // Lưu các trường khác trong local storage
+                localStorage.setItem('refresh_token', result.refresh_token);
+                localStorage.setItem('username', result.username);
+                localStorage.setItem('user_id', result.user_id);
+                localStorage.setItem('role', result.role);
 
                 return { success: true, error: null }; // Successful login
             } else {
