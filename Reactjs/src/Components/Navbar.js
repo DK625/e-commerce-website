@@ -5,6 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import carousel_1 from '../assets/img/carousel-1.jpg'
 import carousel_2 from '../assets/img/carousel-2.jpg'
+import Cookies from 'js-cookie';
+import User from './Navbar/User';
+import './Navbar/Navbar.css'
 
 const Navbar = ({ inputImages }) => {
     const [isNavbarVisible, setNavbarVisible] = useState(true);
@@ -52,6 +55,43 @@ const Navbar = ({ inputImages }) => {
     const pageClass = "dropdown-item";
 
     const imagesResult = inputImages || defaultImages;
+
+    const [isLoggedIn, setLoggedIn] = useState(false);
+    const [username, setUsername] = useState('default');
+
+    // Kiểm tra xem đã đăng nhập hay chưa
+    const checkLoginStatus = () => {
+        const result = Cookies.get('result');
+        if (result) {
+            setLoggedIn(true);
+            const resultFromCookie = JSON.parse(Cookies.get('result'));
+            const storedUsername = resultFromCookie.username;
+            setUsername(storedUsername);
+        }
+    };
+
+    // Gọi hàm kiểm tra trạng thái đăng nhập khi component được tạo
+    useEffect(() => {
+        checkLoginStatus();
+    }, []);
+
+    const handleLogout = () => {
+        Cookies.remove('result');
+        setLoggedIn(false);
+        setUsername('');
+    };
+
+    // Thay đổi nội dung Navbar dựa trên trạng thái đăng nhập
+    const navbarContent = isLoggedIn ? (
+        // <User username={username} />
+        <User username={username} handleLogout={handleLogout} />
+        // <Products productType={'Trendy Products'} />
+    ) : (
+        <>
+            <Link to='/login' className="nav-item nav-link">Login</Link>
+            <Link to='/sign_up' className="nav-item nav-link">Register</Link>
+        </>
+    );
 
     return (
         <div className="row border-top px-xl-5">
@@ -114,8 +154,7 @@ const Navbar = ({ inputImages }) => {
                             <NavLink to="/contact" className={categoryClass}>Contact us</NavLink>
                         </div>
                         <div className="navbar-nav ml-auto py-0">
-                            <Link to='/login' className={categoryClass}>Login</Link>
-                            <a href="sign_up_form/colorlib-regform-8/index.html" className={categoryClass}>Register</a>
+                            {navbarContent}
                         </div>
                     </div>
                 </nav>

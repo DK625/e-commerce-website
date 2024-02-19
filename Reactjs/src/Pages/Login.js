@@ -5,7 +5,8 @@ import { faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import google_logo from '../assets/img/google-logo.svg';
 import 'react-slideshow-image/dist/styles.css';
 import '../Components/Login/Login.css';
-import Cookies from 'js-cookie';
+import AuthService from '../Services/AuthService'
+import { useHistory } from 'react-router-dom';
 
 // Component chính
 function Login() {
@@ -25,31 +26,18 @@ const FormHeader = (props) => <h2 id="headerTitle">{props.title}</h2>;
 
 // Component Form chứa input và nút login
 const LoginForm = () => {
-    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState(null);
+    const history = useHistory();
 
     const handleLogin = async () => {
-        try {
-            const response = await fetch('/api/login', {
-                method: 'POST',
-                body: JSON.stringify({ email, password }),
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            });
+        const loginResult = await AuthService.login(username, password);
 
-            if (response.ok) {
-                const { accessToken } = await response.json();
-
-                // Set the access token as an HTTP-only cookie using js-cookie
-                Cookies.set('access_token', accessToken, {
-                    path: '/',
-                    secure: true, // Set to true if using HTTPS
-                    sameSite: 'strict', // Adjust based on your needs
-                });
-            }
-        } catch (error) {
-            console.error('Error during login:', error);
+        if (loginResult.success) {
+            history.push('/');
+        } else {
+            setError(loginResult.error);
         }
     };
 
@@ -59,8 +47,8 @@ const LoginForm = () => {
                 description="Username"
                 placeholder="Enter your username"
                 type="text"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
             />
             <FormInputPassword
                 description="Password"
@@ -69,7 +57,8 @@ const LoginForm = () => {
                 onChange={(e) => setPassword(e.target.value)}
             />
             <FormButton title="Log in" onClick={handleLogin} />
-            <span className="forgot_password">Forgot your password?</span>
+            {error && <div className="error-message">{error}</div>}
+            <span className="forgot-password">Forgot your password?</span>
         </div>
     );
 };

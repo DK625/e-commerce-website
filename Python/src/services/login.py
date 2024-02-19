@@ -31,7 +31,7 @@ class LoginService:
 
         if user:
             return {
-                'message': 'Login successful',
+                'username': user.username,
                 'token': generate_jwt_token(user),
                 'user_id': user.id,
                 'role': user.role.name

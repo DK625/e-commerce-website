@@ -1,0 +1,29 @@
+.navbar__link--account__container {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+    text-transform: none;
+}
+
+.avatar__placeholder {
+    position: relative;
+    top: 1.5px;
+    left: 6px;
+}
+
+.avatar {
+    display: inline-block;
+    width: 1.875rem;
+    height: 1.875rem;
+    position: relative;
+    border-radius: 50%;
+    border: 0.0625rem solid rgba(0, 0, 0, .09);
+    box-sizing: border-box;
+}
+
+.navbar__username {
+    max-width: 9.375rem;
+    padding-left: 0.3125rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

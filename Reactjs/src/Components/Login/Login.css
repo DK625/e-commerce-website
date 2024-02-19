@@ -99,10 +99,17 @@ html {
     right: 50px
 }
 
-.forgot_password {
+.forgot-password {
     font-size: 14px;
     position: absolute;
     left: 45px;
+}
+
+.error-message {
+    font-size: 14px;
+    position: relative;
+    left: 45px;
+    color: red
 }
 
 #button {
