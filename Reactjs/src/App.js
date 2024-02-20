@@ -5,11 +5,10 @@ import ProductDetail from './Pages/ProductDetail.js'
 import Cart from './Pages/ShoppingCart.js';
 import CheckOut from './Pages/CheckOut.js';
 import Login from './Pages/Login.js';
+import Purchase from './Pages/Purchase.js'
 import { BrowserRouter as Router, Switch, Redirect, Route } from "react-router-dom";
-import MemberDashboard from './Pages/Dashboard/MemberDashboard/MemberDashboard.js';
 import Header from './Components/Header';
 import Footer from './Components/Footer.js';
-import AdminDashboard from './Pages/Dashboard/AdminDashboard/AdminDashboard.js';
 import { useContext } from "react"
 import { AuthContext } from "./Context/AuthContext.js"
 
@@ -86,11 +85,8 @@ function App() {
               <Route exact path='/checkout'>
                 <CheckOut />
               </Route>
-              <Route exact path='/dashboard@member'>
-                <MemberDashboard />
-              </Route>
-              <Route exact path='/dashboard@admin'>
-                <AdminDashboard />
+              <Route exact path='/user/purchase'>
+                <Purchase />
               </Route>
               <Route exact path='/books'>
                 <Home />

@@ -3,6 +3,7 @@ import { SmileOutlined } from '@ant-design/icons';
 import { Dropdown, Space } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const User = ({ username, handleLogout }) => {
     const items = [
@@ -17,8 +18,16 @@ const User = ({ username, handleLogout }) => {
         {
             key: '2',
             label: (
-                <a target="_blank" rel="noopener noreferrer" href="">
+                <Link to="/user/purchase" rel="noopener noreferrer">
                     Purchase Order
+                </Link>
+            ),
+        },
+        {
+            key: '2',
+            label: (
+                <a target="_blank" rel="noopener noreferrer" href="">
+                    Hi
                 </a>
             ),
             icon: <SmileOutlined />,

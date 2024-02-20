@@ -4,8 +4,21 @@ from .config import SECRET_KEY
 
 
 def generate_jwt_tokens(user):
-    expiration_access = datetime.utcnow() + timedelta(minutes=15)  # Thời gian hết hạn của access token
     expiration_refresh = datetime.utcnow() + timedelta(days=1)     # Thời gian hết hạn của refresh token
+
+    # Tạo refresh token
+    payload_refresh = {
+        'exp': expiration_refresh,
+    }
+    refresh_token = jwt.encode(payload_refresh, SECRET_KEY, algorithm='HS256')
+
+    return {
+        'access_token': generate_access_token(user),
+        'refresh_token': refresh_token
+    }
+
+def generate_access_token(user):
+    expiration_access = datetime.utcnow() + timedelta(minutes=15)
 
     # Tạo access token
     payload_access = {
@@ -15,16 +28,14 @@ def generate_jwt_tokens(user):
         'exp': expiration_access,
     }
     access_token = jwt.encode(payload_access, SECRET_KEY, algorithm='HS256')
+    return access_token
 
-    # Tạo refresh token
-    payload_refresh = {
-        'user_id': user.id,
-        'exp': expiration_refresh,
-    }
-    refresh_token = jwt.encode(payload_refresh, SECRET_KEY, algorithm='HS256')
-
-    return {
-        'access_token': access_token,
-        'refresh_token': refresh_token
-    }
-
+def decode_token(token):
+    try:
+        # Decode the token and get the payload
+        payload = jwt.decode(token, SECRET_KEY, algorithms=['HS256'])
+        return payload
+    except jwt.ExpiredSignatureError:
+        return {'error': 'Expired token'}, 401
+    except jwt.InvalidTokenError:
+        return {'error': 'Invalid token'}, 401

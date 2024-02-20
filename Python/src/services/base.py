@@ -21,5 +21,5 @@ class BaseModel:
     def check_exit_user_sign_up(self, username):
         user = self._session.query(User).filter_by(username=username).first()
         if user:
-            return True
-        return False
+            return user
+        return None

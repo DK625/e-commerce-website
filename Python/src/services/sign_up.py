@@ -79,11 +79,12 @@ class SignUpService:
         new_user = self._repo.create_user(email, password, username, name, role_id, phone_number, address)
 
         if new_user:
-            token = generate_jwt_token(new_user)
+            tokens = generate_jwt_tokens(new_user)
 
             return {
                 'message': 'Sign up successful',
-                'token': token,
+                'access_token': tokens['access_token'],
+                'refresh_token': tokens['refresh_token'],
                 'user_id': new_user.id,
                 'role': new_user.role.name
             }

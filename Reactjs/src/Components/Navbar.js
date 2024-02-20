@@ -61,11 +61,13 @@ const Navbar = ({ inputImages }) => {
 
     // Kiểm tra xem đã đăng nhập hay chưa
     const checkLoginStatus = () => {
-        const result = Cookies.get('result');
-        if (result) {
+        const storedUsername = localStorage.getItem('username');
+        // const result = Cookies.get('result');
+        // const storedRefreshToken = localStorage.getItem('refresh_token');
+        // const storedRole = localStorage.getItem('role');
+
+        if (storedUsername) {
             setLoggedIn(true);
-            const resultFromCookie = JSON.parse(Cookies.get('result'));
-            const storedUsername = resultFromCookie.username;
             setUsername(storedUsername);
         }
     };
@@ -76,7 +78,11 @@ const Navbar = ({ inputImages }) => {
     }, []);
 
     const handleLogout = () => {
-        Cookies.remove('result');
+        Cookies.remove('access_token');
+        localStorage.removeItem('refresh_token');
+        localStorage.removeItem('username');
+        localStorage.removeItem('user_id');
+        localStorage.removeItem('role');
         setLoggedIn(false);
         setUsername('');
     };

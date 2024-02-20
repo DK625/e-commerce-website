@@ -1,0 +1,51 @@
+.purchase-container {
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    width: 1200px;
+
+    .account {
+        border: solid red 1px;
+        width: 20%;
+        height: 300px;
+
+        .edit-profile {
+            padding: 15px 0;
+            border-bottom: 1px solid #efefef;
+            display: flex;
+
+            .image {
+                width: 50px;
+                height: 55px;
+            }
+
+            .text {
+                padding-left: 25px;
+                flex: 1;
+
+                .username {
+                    font-weight: 600;
+                    margin-bottom: 5px;
+                    color: #333;
+                }
+            }
+        }
+
+        .account-option {
+            padding: 0;
+            margin: 25px 0 0;
+            cursor: pointer;
+
+            .option {
+                border: solid red 1px;
+                /* height: 38px; */
+            }
+        }
+    }
+
+    .order {
+        border: solid red 1px;
+        width: 80%;
+        height: 500px;
+    }
+}
