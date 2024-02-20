@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'react-slideshow-image/dist/styles.css';
 import Navbar from '../Components/Navbar';
 import BackToTop from '../Components/BackToTop'
 import '../Components/Purchase/Purchase.css'
 import avt from '../assets/img/vendor-8.jpg'
+import maill from '../assets/img/mall.jpg'
+import chat from '../assets/img/chat.jpg'
+import shop from '../assets/img/shop.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faUser, faClipboardList, faBell, faTicketAlt, faCoins } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faSearch, faTruck, faQuestionCircle, faTicketAlt, faCoins } from '@fortawesome/free-solid-svg-icons';
 
 const username = localStorage.getItem('username');
 
 function Purchase() {
+    const [searchText, setSearchText] = useState('');
+
+    const handleSearchChange = (e) => {
+        setSearchText(e.target.value);
+    };
     return (
         <div className='purchase'>
             <Navbar />
@@ -60,7 +68,7 @@ function Purchase() {
                 </div>
                 <div className='order'>
                     <div className='order-status'>
-                        <div className='status'>All</div>
+                        <div className='status active-status'>All</div>
                         <div className='status'>Wait for pay</div>
                         <div className='status'>Transport</div>
                         <div className='status'>Waiting for delivery</div>
@@ -68,12 +76,30 @@ function Purchase() {
                         <div className='status'>Cancelled</div>
                         <div className='status'>Return/Refund</div>
                     </div>
-                    <div className='order-search'>You can search by Shop name, Order ID or Product Name</div>
-                    <div className='order-detail'>Baseus Official Mall
-                        Chat
-                        Xem Shop
-                        Đơn hàng đã đến kho phân loại BN B Mega SOC
-                        CHỜ GIAO HÀNG</div>
+                    <div className='order-search'>
+                        <div><FontAwesomeIcon icon={faSearch} /></div>
+                        <div className='text'>
+                            You can search by Shop name, Order ID or Product Name
+                        </div>
+                    </div>
+                    <div className='order-detail'>
+                        <div className='top'>
+                            <div className='part-1'>
+                                <div className='top-1'><img src={maill} /></div>
+                                <div className='top-2'>Baseus Official Mall</div>
+                                <div className='top-3'><img src={chat} /></div>
+                                <div className='top-4'><img src={shop} /></div>
+                            </div>
+                            <div className='part-2'>
+                                <div className='top-5'><FontAwesomeIcon icon={faTruck} /> Đơn hàng đã đến kho phân loại BN B Mega SOC <FontAwesomeIcon icon={faQuestionCircle} /></div>
+                                <div className='top-6'>CHỜ GIAO HÀNG</div>
+                            </div>
+                        </div>
+                        <div className='middle'></div>
+                        <div className='cost'></div>
+                        <div className='bottom'></div>
+
+                    </div>
                 </div>
             </div>
             < BackToTop />

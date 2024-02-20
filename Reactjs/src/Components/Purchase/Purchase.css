@@ -64,20 +64,98 @@
 
         .order-status {
             display: flex;
-            background-color: antiquewhite;
+            margin: 10px 0px;
 
             .status {
                 text-align: center;
                 flex: 1
             }
+
+            .active-status {
+                border-bottom: solid red 1px;
+                color: red;
+            }
         }
 
         .order-search {
-            background-color: darkcyan;
+            background-color: #EAEAEA;
+            margin: 10px 0px;
+            padding: 10px;
+            display: flex;
+
+            .text {
+                padding-left: 10px;
+            }
         }
 
         .order-detail {
-            background-color: antiquewhite;
+            .top {
+                display: flex;
+                justify-content: space-between;
+                margin: 0 10px;
+                padding: 10px 0;
+                border-bottom: solid 1px rgba(0, 0, 0, .09);
+                cursor: pointer;
+
+                .part-1 {
+                    display: flex;
+
+                    .top-1 {
+                        height: 1rem;
+                        /* width: 2.5rem; */
+                    }
+
+                    .top-1 img {
+                        height: 100%;
+                        width: 100%;
+                    }
+
+                    .top-2 {
+                        font-weight: 600;
+                        margin: 0 10px;
+                    }
+
+                    .top-3 {
+                        height: 1.5rem;
+                        margin-right: 10px;
+                    }
+
+                    .top-3 img {
+                        height: 100%;
+                        width: 100%;
+                    }
+
+                    .top-4 {
+                        height: 1.5rem;
+                    }
+
+                    .top-4 img {
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+
+                .part-2 {
+                    display: flex;
+
+                    .top-5 {
+                        padding-right: 10px;
+                        color: #26AA99;
+                    }
+
+                    .top-6 {
+                        color: #ee4d2d;
+                        border-left: solid 1px rgba(0, 0, 0, .09);
+                        padding: 0 10px;
+                    }
+                }
+            }
+
+            .middle {}
+
+            .cost {}
+
+            .bottom {}
         }
     }
 }
