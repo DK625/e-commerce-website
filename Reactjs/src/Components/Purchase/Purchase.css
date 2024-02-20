@@ -1,13 +1,10 @@
 .purchase-container {
     display: flex;
-    margin-right: auto;
-    margin-left: auto;
-    width: 1200px;
+    margin-right: 3%;
+    margin-left: 3%;
 
     .account {
-        border: solid red 1px;
         width: 20%;
-        height: 300px;
 
         .edit-profile {
             padding: 15px 0;
@@ -37,8 +34,26 @@
             cursor: pointer;
 
             .option {
-                border: solid red 1px;
-                /* height: 38px; */
+                margin-left: 5px;
+                margin-bottom: 5px;
+                display: flex;
+
+                .option-image {
+                    height: 1.3rem;
+                    width: 1.3rem;
+                    margin-right: 0.625rem;
+                }
+
+                .option-image img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .active-option {
+                margin-left: 5px;
+                margin-bottom: 5px;
+                color: #ee4d2d
             }
         }
     }
@@ -46,6 +61,23 @@
     .order {
         border: solid red 1px;
         width: 80%;
-        height: 500px;
+
+        .order-status {
+            display: flex;
+            background-color: antiquewhite;
+
+            .status {
+                text-align: center;
+                flex: 1
+            }
+        }
+
+        .order-search {
+            background-color: darkcyan;
+        }
+
+        .order-detail {
+            background-color: antiquewhite;
+        }
     }
 }
