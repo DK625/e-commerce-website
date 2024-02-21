@@ -151,7 +151,66 @@
                 }
             }
 
-            .middle {}
+            .middle {
+                display: flex;
+                border-bottom: solid 1px rgba(0, 0, 0, .09);
+                position: relative;
+                margin: 10px 0;
+                padding-bottom: 10px;
+                /* align-items: center; */
+
+                .product-image {
+                    margin: 0px 10px;
+                    height: 5rem;
+                    width: 5rem;
+                }
+
+                .product-image img {
+                    height: 100%;
+                    width: 100%;
+                }
+
+                .product-description {
+                    .product-title {
+                        color: #333333;
+                    }
+
+                    .product-classification {
+                        font-size: 0.9rem;
+                    }
+
+                    .product-quantity {
+                        color: #333333;
+                        font-size: 0.9rem;
+                    }
+
+                    .product-policy {
+                        padding: 0 5px;
+                        font-size: 0.9rem;
+                        border: solid #EE4D2D 1px;
+                        color: #EE4D2D;
+                    }
+                }
+
+                .product-cost {
+                    position: absolute;
+                    right: 0;
+                    display: flex;
+                    margin-right: 15px;
+                    top: 50%;
+                    transform: translateY(-50%);
+
+                    .pre-cost {
+                        opacity: .26;
+                        text-decoration-line: line-through;
+                        margin-right: 10px;
+                    }
+
+                    .post-cost {
+                        color: #EE4D2D;
+                    }
+                }
+            }
 
             .cost {}
 

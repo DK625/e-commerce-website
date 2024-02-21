@@ -7,6 +7,7 @@ import avt from '../assets/img/vendor-8.jpg'
 import maill from '../assets/img/mall.jpg'
 import chat from '../assets/img/chat.jpg'
 import shop from '../assets/img/shop.jpg'
+import product from '../assets/img/product-middle.jpeg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faSearch, faTruck, faQuestionCircle, faTicketAlt, faCoins } from '@fortawesome/free-solid-svg-icons';
 
@@ -95,7 +96,19 @@ function Purchase() {
                                 <div className='top-6'>CHỜ GIAO HÀNG</div>
                             </div>
                         </div>
-                        <div className='middle'></div>
+                        <div className='middle'>
+                            <div className='product-image'><img src={product} /></div>
+                            <div className='product-description'>
+                                <div className='product-title'>Baseus hidden lens detector provides security protection against peeping</div>
+                                <div className='product-classification'>Product classification: black</div>
+                                <div className='product-quantity'>x1</div>
+                                <span className='product-policy'>7 days return</span>
+                            </div>
+                            <div className='product-cost'>
+                                <div className='pre-cost'>₫282.000 </div>
+                                <div className='post-cost'>₫124.000</div>
+                            </div>
+                        </div>
                         <div className='cost'></div>
                         <div className='bottom'></div>
 
