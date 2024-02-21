@@ -8,6 +8,7 @@ import maill from '../assets/img/mall.jpg'
 import chat from '../assets/img/chat.jpg'
 import shop from '../assets/img/shop.jpg'
 import product from '../assets/img/product-middle.jpeg'
+import guarante from '../assets/img/guarante.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faSearch, faTruck, faQuestionCircle, faTicketAlt, faCoins } from '@fortawesome/free-solid-svg-icons';
 
@@ -109,8 +110,100 @@ function Purchase() {
                                 <div className='post-cost'>₫124.000</div>
                             </div>
                         </div>
-                        <div className='cost'></div>
-                        <div className='bottom'></div>
+                        <div className='cost'>
+                            <div className='shop-img'><img src={guarante} /></div>
+                            <div className='text'>Into money:</div>
+                            <div className='value'>₫116.000</div>
+                        </div>
+                        <div className='bottom'>
+                            <div className='notion'>Please only click "Received" once your order has been delivered to you and the product has been received without any problems..</div>
+                            <div className='status'>Goods received</div>
+                            <div className='return-request'>Request a return/refund</div>
+                            <div className='contact-seller'>Contact seller</div>
+                        </div>
+
+                    </div>
+
+
+
+                    <div className='order-detail'>
+                        <div className='top'>
+                            <div className='part-1'>
+                                <div className='top-1'><img src={maill} /></div>
+                                <div className='top-2'>Baseus Official Mall</div>
+                                <div className='top-3'><img src={chat} /></div>
+                                <div className='top-4'><img src={shop} /></div>
+                            </div>
+                            <div className='part-2'>
+                                <div className='top-5'><FontAwesomeIcon icon={faTruck} /> Đơn hàng đã đến kho phân loại BN B Mega SOC <FontAwesomeIcon icon={faQuestionCircle} /></div>
+                                <div className='top-6'>CHỜ GIAO HÀNG</div>
+                            </div>
+                        </div>
+                        <div className='middle'>
+                            <div className='product-image'><img src={product} /></div>
+                            <div className='product-description'>
+                                <div className='product-title'>Baseus hidden lens detector provides security protection against peeping</div>
+                                <div className='product-classification'>Product classification: black</div>
+                                <div className='product-quantity'>x1</div>
+                                <span className='product-policy'>7 days return</span>
+                            </div>
+                            <div className='product-cost'>
+                                <div className='pre-cost'>₫282.000 </div>
+                                <div className='post-cost'>₫124.000</div>
+                            </div>
+                        </div>
+                        <div className='cost'>
+                            <div className='shop-img'><img src={guarante} /></div>
+                            <div className='text'>Into money:</div>
+                            <div className='value'>₫116.000</div>
+                        </div>
+                        <div className='bottom'>
+                            <div className='notion'>Please only click "Received" once your order has been delivered to you and the product has been received without any problems..</div>
+                            <div className='status'>Goods received</div>
+                            <div className='return-request'>Request a return/refund</div>
+                            <div className='contact-seller'>Contact seller</div>
+                        </div>
+
+                    </div>
+
+
+                    <div className='order-detail'>
+                        <div className='top'>
+                            <div className='part-1'>
+                                <div className='top-1'><img src={maill} /></div>
+                                <div className='top-2'>Baseus Official Mall</div>
+                                <div className='top-3'><img src={chat} /></div>
+                                <div className='top-4'><img src={shop} /></div>
+                            </div>
+                            <div className='part-2'>
+                                <div className='top-5'><FontAwesomeIcon icon={faTruck} /> Đơn hàng đã đến kho phân loại BN B Mega SOC <FontAwesomeIcon icon={faQuestionCircle} /></div>
+                                <div className='top-6'>CHỜ GIAO HÀNG</div>
+                            </div>
+                        </div>
+                        <div className='middle'>
+                            <div className='product-image'><img src={product} /></div>
+                            <div className='product-description'>
+                                <div className='product-title'>Baseus hidden lens detector provides security protection against peeping</div>
+                                <div className='product-classification'>Product classification: black</div>
+                                <div className='product-quantity'>x1</div>
+                                <span className='product-policy'>7 days return</span>
+                            </div>
+                            <div className='product-cost'>
+                                <div className='pre-cost'>₫282.000 </div>
+                                <div className='post-cost'>₫124.000</div>
+                            </div>
+                        </div>
+                        <div className='cost'>
+                            <div className='shop-img'><img src={guarante} /></div>
+                            <div className='text'>Into money:</div>
+                            <div className='value'>₫116.000</div>
+                        </div>
+                        <div className='bottom'>
+                            <div className='notion'>Please only click "Received" once your order has been delivered to you and the product has been received without any problems..</div>
+                            <div className='status'>Goods received</div>
+                            <div className='return-request'>Request a return/refund</div>
+                            <div className='contact-seller'>Contact seller</div>
+                        </div>
 
                     </div>
                 </div>

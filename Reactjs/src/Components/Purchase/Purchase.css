@@ -2,6 +2,7 @@
     display: flex;
     margin-right: 3%;
     margin-left: 3%;
+    margin-top: 1%;
 
     .account {
         width: 20%;
@@ -59,7 +60,6 @@
     }
 
     .order {
-        border: solid red 1px;
         width: 80%;
 
         .order-status {
@@ -89,6 +89,8 @@
         }
 
         .order-detail {
+            border-bottom: solid #F5F5F5 1rem;
+
             .top {
                 display: flex;
                 justify-content: space-between;
@@ -212,9 +214,62 @@
                 }
             }
 
-            .cost {}
+            .cost {
+                display: flex;
+                position: relative;
+                right: 0;
+                justify-content: flex-end;
+                margin: 20px 10px;
 
-            .bottom {}
+                .shop-img {
+                    height: 1.5rem;
+                    width: 1.5rem;
+                    margin-right: 5px;
+                }
+
+                .shop-img img {
+                    height: 100%;
+                    width: 100%;
+                }
+
+                .text {}
+
+                .value {
+                    margin-left: 10px;
+                    color: #EE4D2D;
+                    font-size: 24px;
+                }
+            }
+
+            .bottom {
+                display: flex;
+                margin: 15px;
+                justify-content: space-between;
+
+                .notion {
+                    width: 40%;
+                    font-size: 0.9rem;
+                }
+
+                .status {
+                    border: solid 1px rgba(0, 0, 0, .09);
+                    padding: 10px;
+                    align-items: center;
+                    text-align: center;
+                    background-color: #E5E4E1;
+                }
+
+                .return-request {
+                    border: solid 1px rgba(0, 0, 0, .09);
+                    padding: 10px;
+                    background-color: #E5E4E1;
+                }
+
+                .contact-seller {
+                    border: solid 1px rgba(0, 0, 0, .09);
+                    padding: 10px;
+                }
+            }
         }
     }
 }
