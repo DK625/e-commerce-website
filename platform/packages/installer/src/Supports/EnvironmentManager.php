@@ -11,7 +11,7 @@ class EnvironmentManager
     {
         $results = trans('packages/installer::installer.environment.success');
 
-        $content = file_get_contents(base_path('.env.example'));
+        $content = file_get_contents(base_path('.env'));
 
         $replacements = [
             'APP_NAME' => [
